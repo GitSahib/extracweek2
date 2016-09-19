@@ -78,7 +78,7 @@ public class UsersLoader implements ApplicationListener<ContextRefreshedEvent> {
     @Override
     public void onApplicationEvent(ContextRefreshedEvent event) {
 
-    	/*User volunteer = new Volunteer();
+    	User volunteer = new Volunteer();
 		volunteer.setEmail("sahib.zer@gmail.com");
 		volunteer.setFirstName("Sahib Zar");
 		volunteer.setLastName("Khan");
@@ -131,6 +131,6 @@ public class UsersLoader implements ApplicationListener<ContextRefreshedEvent> {
 		offer.setUser((Volunteer) volunteer);
 		
 		offer.getTasks().add(taskRepository.findOne(1));
-		offerRepository.save(offer);*/
+		offerRepository.save(offer);
     }
 }
