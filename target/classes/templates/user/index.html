@@ -10,18 +10,14 @@
 <title>Volunteering! |</title>
 
 <!-- Bootstrap -->
-<link href="../static/vendors/bootstrap/dist/css/bootstrap.min.css" th:href="@{vendors/bootstrap/dist/css/bootstrap.min.css}"
-	rel="stylesheet"/>
+<link href="../static/vendors/bootstrap/dist/css/bootstrap.min.css" th:href="@{../vendors/bootstrap/dist/css/bootstrap.min.css}" rel="stylesheet" />
 <!-- Font Awesome -->
-<link href="../static/vendors/font-awesome/css/font-awesome.min.css"
-	  th:href="@{vendors/font-awesome/css/font-awesome.min.css}"
-	rel="stylesheet"/>
+<link href="../static/vendors/font-awesome/css/font-awesome.min.css"  th:href="@{../vendors/font-awesome/css/font-awesome.min.css}" rel="stylesheet" />
 <!-- Animate.css -->
-<link href="../static/vendors/animate.css/animate.min.css" rel="stylesheet"
-       th:href="@{vendors/animate.css/animate.min.css}"/>
+<link href="../static/vendors/animate.css/animate.min.css"  th:href="@{../vendors/animate.css/animate.min.css}" rel="stylesheet" />
 
 <!-- Custom Theme Style -->
-<link href="../static/build/css/custom.min.css" rel="stylesheet" th:href="@{build/css/custom.min.css}"/>
+<link href="../static/build/css/custom.min.css" th:href="@{../build/css/custom.min.css}" rel="stylesheet"/>
 </head>
 
 <body class="login">
@@ -32,7 +28,7 @@
 		<div class="login_wrapper">
 			<div class="animate form login_form">
 				<section class="login_content">
-					<form>
+					<form action="/user/signup" method="post">
 						<h1>Login Form</h1>
 						<div>
 							<input type="text" class="form-control" placeholder="Username"
@@ -62,8 +58,9 @@
 								<h1>
 									<i class="fa fa-paw"></i> Volunteering!
 								</h1>
-								<p>©2016 All Rights Reserved. Volunteering! is a Bootstrap 3
-									template. Privacy and Terms</p>
+								<p>©2016 All Rights Reserved. Volunteering! is an Extra
+									Credit Project for CS544 Week 2. Privacy and Terms (Front End
+									Theme Used Bootstrap CSS Admin Template)</p>
 							</div>
 						</div>
 					</form>
@@ -72,19 +69,29 @@
 
 			<div id="register" class="animate form registration_form">
 				<section class="login_content">
-					<form>
+					<form action="/user/signup" method="post">
 						<h1>Create Account</h1>
 						<div>
-							<input type="text" class="form-control" placeholder="Username"
-								required="" />
+							<input type="text" class="form-control" placeholder="FirstName" name="firstName" required="required" />
 						</div>
 						<div>
-							<input type="email" class="form-control" placeholder="Email"
-								required="" />
+							<input type="text" class="form-control" placeholder="LastName" name="lastName" required="required" />
 						</div>
 						<div>
-							<input type="password" class="form-control"
-								placeholder="Password" required="" />
+							<input type="email" class="form-control" placeholder="email" name="email" equired="required" />
+						</div>
+						
+						<div>
+							<input type="password" class="form-control"	placeholder="Password" name="password" required="required" />
+						</div>
+						<div>
+							<input type="password" class="form-control"	placeholder="ConfirmPassword" name="cpassword" required="required" />
+						</div>
+						<div>
+							<select name="userType" class="form-control">
+								<option value="Volunteer">Volunteer</option>
+								<option value="Administrator">Administrator</option>
+							</select>
 						</div>
 						<div>
 							<a class="btn btn-default submit" href="index.html">Submit</a>

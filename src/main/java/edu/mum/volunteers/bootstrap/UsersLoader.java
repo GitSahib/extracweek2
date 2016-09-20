@@ -82,6 +82,7 @@ public class UsersLoader implements ApplicationListener<ContextRefreshedEvent> {
 		volunteer.setEmail("sahib.zer@gmail.com");
 		volunteer.setFirstName("Sahib Zar");
 		volunteer.setLastName("Khan");
+		volunteer.setPassword("Sahib");
 		userRepository.save(volunteer);
 		log.info("Saved User - id: " + volunteer.getId());
 		//admin
@@ -89,6 +90,7 @@ public class UsersLoader implements ApplicationListener<ContextRefreshedEvent> {
 		admin.setEmail("meetsahib88@gmail.com");
 		admin.setFirstName("Sahib Zar");
 		admin.setLastName("Khan");
+		admin.setPassword("Sahib");
 		userRepository.save(admin);
         log.info("Saved User - id:" + admin.getId());
         
@@ -96,7 +98,7 @@ public class UsersLoader implements ApplicationListener<ContextRefreshedEvent> {
 		Task task = new Task();
 		project.setDescription("A test project");
 		project.setName("Test BOOT Project");
-		admin = userRepository.findByUserType("Administrator");
+		admin = userRepository.findTop1ByUserTypeOrderByIdDesc("Administrator");
 		project.setUser((Administrator) admin);
 		project.setStatus(ProjectStatus.NOT_STARTED);
 		
@@ -127,7 +129,7 @@ public class UsersLoader implements ApplicationListener<ContextRefreshedEvent> {
 		log.info("Saved Project id:"+project.getId());
         
 		Offer offer = new Offer();
-		volunteer = userRepository.findByUserType("Volunteer");
+		volunteer = userRepository.findTop1ByUserTypeOrderByIdDesc("Volunteer");
 		offer.setUser((Volunteer) volunteer);
 		
 		offer.getTasks().add(taskRepository.findOne(1));
