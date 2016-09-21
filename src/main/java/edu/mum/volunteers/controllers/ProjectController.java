@@ -23,6 +23,6 @@ public class ProjectController {
     	ProjectRepository projectRepo = ApplicationContextProvider.getApplicationContext().getBean(ProjectRepository.class);
     	
     	projectRepo.save(project);
-        return "user/index1";
+        return "user/index";
     }
 }
